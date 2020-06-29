@@ -1,0 +1,4 @@
+name: Fresh2Play Anti-Cheat
+version: 0.1 Beta
+description: f2pac puts a end to hackers on Fresh2Play
+main: net.fresh2play.plugins.F2PAC.F2PAC
