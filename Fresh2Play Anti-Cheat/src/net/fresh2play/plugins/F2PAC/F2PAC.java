@@ -13,7 +13,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.fresh2play.plugins.F2PAC.checks.CheckResult;
-import net.fresh2play.plugins.F2PAC.events.JoinLeavEvent;
+import net.fresh2play.plugins.F2PAC.events.JoinLeaveEvent;
 import net.fresh2play.plugins.F2PAC.events.MoveListener;
 import net.fresh2play.plugins.F2PAC.util.Settings;
 import net.fresh2play.plugins.F2PAC.util.User;
@@ -25,7 +25,7 @@ public class F2PAC extends JavaPlugin{
 	@Override
 	public void onEnable() {
 		PluginManager pm = Bukkit.getPluginManager();
-		pm.registerEvents(new JoinLeavEvent(), this);
+		pm.registerEvents(new JoinLeaveEvent(), this);
 		pm.registerEvents(new MoveListener(), this);
 		
 		

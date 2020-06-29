@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import net.fresh2play.plugins.F2PAC.F2PAC;
 import net.fresh2play.plugins.F2PAC.util.User;
 
-public class JoinLeavEvent implements Listener {
+public class JoinLeaveEvent implements Listener {
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
