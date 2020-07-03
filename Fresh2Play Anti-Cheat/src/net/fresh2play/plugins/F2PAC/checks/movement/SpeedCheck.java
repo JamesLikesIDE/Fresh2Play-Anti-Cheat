@@ -14,8 +14,8 @@ public class SpeedCheck {
 	public static CheckResult runCheck(Distance d, User u) {
 		Double xz_speed = (d.getxDiff() > d.getzDiff() ? d.getxDiff() : d.getzDiff());
 		if(xz_speed > Settings.MAX_XZ_SPEED) 
-			return new CheckResult(Level.DEFINITELY, "Tried to move faster than max speed. Speed=(" + xz_speed.toString() + "), max=(" + Settings.MAX_XZ_SPEED, CheckType.SPEED);
+			return new CheckResult(Level.DEFINITELY, "Tried to move faster than max speed. Speed=" + xz_speed.toString() + ", max=" + Settings.MAX_XZ_SPEED, CheckType.SPEED);
 		return PASS;
-	}
+	} 
 	
 }

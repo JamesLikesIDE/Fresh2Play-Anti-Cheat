@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.fresh2play.plugins.F2PAC.checks.CheckResult;
 import net.fresh2play.plugins.F2PAC.events.JoinLeaveEvent;
 import net.fresh2play.plugins.F2PAC.events.MoveListener;
+import net.fresh2play.plugins.F2PAC.events.PlayerListener;
 import net.fresh2play.plugins.F2PAC.util.Settings;
 import net.fresh2play.plugins.F2PAC.util.User;
 
@@ -24,13 +26,16 @@ public class F2PAC extends JavaPlugin{
 
 	@Override
 	public void onEnable() {
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Fresh2Play Anti-Cheat Loading...");
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new JoinLeaveEvent(), this);
 		pm.registerEvents(new MoveListener(), this);
+		pm.registerEvents(new PlayerListener(), this);
 		
 		
 		for (Player p : Bukkit.getOnlinePlayers())
 			USERS.put(p.getUniqueId(), new User(p));
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Fresh2Play Anti-Cheat Loaded!");
 	}
 	
 	public static void log(CheckResult cr, User u) {
@@ -39,6 +44,10 @@ public class F2PAC extends JavaPlugin{
 			if(p.hasPermission(Settings.notify)) 
 				p.sendMessage(message);
 		Bukkit.getConsoleSender().sendMessage(message);
+	}
+	
+	public static User getUser(Player p) {
+		return USERS.get(p.getUniqueId());
 	}
 	
 }

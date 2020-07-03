@@ -5,7 +5,8 @@ import org.bukkit.permissions.Permission;
 
 public enum CheckType {
 	
-	SPEED("Speed", new Permission("f2pac.bypass.speed"));
+	SPEED("Speed", new Permission("f2pac.bypass.speed")),
+	NOSLOW("NoSlowDown", new Permission("f2pac.bypass.noslow"));
 	
 	private String name;
 	private Permission perm;
